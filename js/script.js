@@ -56,7 +56,7 @@ FB.getLoginStatus(function (response) {
 
 
 
-        FB.api('/me/photos', 'post', {
+/*        FB.api('/me/photos', 'post', {
             name: "test",
             message: 'this is parse photo',
             url: "http://140.119.169.167/facebook_temp/facebookdemo/img/facebook.jpg" //如果要init運行只能用絕對絕對路徑
@@ -68,6 +68,7 @@ FB.getLoginStatus(function (response) {
                 alert('Post ID: ' + response.id);
             }
         });
+*/
     } else if (response.status === 'not_authorized') {
         //要求使用者登入，索取publish_actions權限
         console.log("this user is not authorizied your apps");
