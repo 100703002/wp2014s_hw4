@@ -20,7 +20,7 @@ FB.getLoginStatus(function (response) {
         //呼叫api把圖片放到#preview IMG tag 內
         var uid = response.authResponse.userID;
         var accessToken = response.authResponse.accessToken;
-        FB.api('/me', function (response) {
+/*        FB.api('/me', function (response) {
             //console.log(response);
             $("body").append('My links is' + response.link);
             $("body").append('My Username is' + response.username);
@@ -28,33 +28,33 @@ FB.getLoginStatus(function (response) {
             $("body").append('My ID is' + response.id);
         });
 
-
-        FB.ui({
+*/
+/*        FB.ui({
             method: 'share',
             href: 'https://kangw3n.github.io/facebook/',
         }, function (response) {});
 
+*/
 
-
-
+/*
         FB.ui({
             method: 'send',
             link: 'http://www.nytimes.com/2011/06/15/arts/people-argue-just-to-win-scholars-assert.html',
         });
-
-        FB.api('/me/likes', function (response) {
+*/
+/*        FB.api('/me/likes', function (response) {
             console.log(response)
             for (var i = 0; i < response.data.length; i++) {
                 console.log(response.data[i].name);
             }
         });
-
-        FB.api('/me/picture?type=normal', function (response) { // normal/large/squere 
+*/
+/*        FB.api('/me/picture?type=normal', function (response) { // normal/large/squere 
             var str = "<img src=" + response.data.url + ">";
             $('body').append(str);
         });
 
-
+*/
 
         FB.api('/me/photos', 'post', {
             name: "test",
