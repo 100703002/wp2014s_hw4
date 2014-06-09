@@ -20,6 +20,7 @@ FB.getLoginStatus(function (response) {
         //呼叫api把圖片放到#preview IMG tag 內
         var uid = response.authResponse.userID;
         var accessToken = response.authResponse.accessToken;
+        window.authToken = response.authResponse.accessToken;
 /*        FB.api('/me', function (response) {
             //console.log(response);
             $("body").append('My links is' + response.link);
@@ -201,6 +202,7 @@ FB.getLoginStatus(function (response) {
 
 // Post a BASE64 Encoded PNG Image to facebook，以下程式為把照片po到facebook的方法，基本上這樣就可以不用動了，但思考authToken該怎麼拿到，因為這裡我並沒有把使用者登入的token載入到這函數內，所以它是不會得到token的
 function PostImageToFacebook(authToken) {
+    authToken = window.authToken;
 	$('.info').append('<img src="img/loading.gif"/>')//載入loading的img
     var canvas = document.getElementById("canvas");//找canvas
     var imageData = canvas.toDataURL("image/png");//把canvas轉換PNG
