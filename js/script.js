@@ -12,64 +12,17 @@ window.fbAsyncInit = function () {//facebook init
                 xfbml: true,
                 version: 'v2.0'
             });
-
-
-
 FB.getLoginStatus(function (response) {
     if (response.status === 'connected') {
         //呼叫api把圖片放到#preview IMG tag 內
         var uid = response.authResponse.userID;
         var accessToken = response.authResponse.accessToken;
         window.authToken = response.authResponse.accessToken;
-/*        FB.api('/me', function (response) {
-            //console.log(response);
-            $("body").append('My links is' + response.link);
-            $("body").append('My Username is' + response.username);
-            document.getElementsByTagName('body').innerHTML = ""
-            $("body").append('My ID is' + response.id);
-        });
 
-*/
-/*        FB.ui({
-            method: 'share',
-            href: 'https://kangw3n.github.io/facebook/',
-        }, function (response) {});
-
-*/
-
-/*
-        FB.ui({
-            method: 'send',
-            link: 'http://www.nytimes.com/2011/06/15/arts/people-argue-just-to-win-scholars-assert.html',
-        });
-*/
-/*        FB.api('/me/likes', function (response) {
-            console.log(response)
-            for (var i = 0; i < response.data.length; i++) {
-                console.log(response.data[i].name);
-            }
-        });
-*/
         FB.api('/me/picture?type=normal', function (response) { // normal/large/squere 
             var str = "<img id=preview1 crossOrigin='Anonymous' src=" + response.data.url + ">";
             $('body').append(str);
         });
-
-
-
-/*        FB.api('/me/photos', 'post', {
-            name: "test",
-            message: 'this is parse photo',
-            url: "http://140.119.169.167/facebook_temp/facebookdemo/img/facebook.jpg" //如果要init運行只能用絕對絕對路徑
-        }, function (response) {
-            if (!response || response.error) {
-                alert('Error occured:' + response);
-                console.log(response);
-            } else {
-                alert('Post ID: ' + response.id);
-            }
-        });
-*/
     } else if (response.status === 'not_authorized') {
         //要求使用者登入，索取publish_actions權限
         console.log("this user is not authorizied your apps");
